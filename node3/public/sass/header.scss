@@ -1,0 +1,30 @@
+
+#header-nav.navbar {
+  margin-bottom: 0;
+}
+.head-cover {
+  height: 51px;
+}
+.user-info {
+  position: relative;
+  .login-out, .admin {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    line-height:30px;
+    text-align: center;
+    background: rgba(0,0,0,.5);
+    transition: 0.8s;
+    display: none;
+  }
+  .login-out {
+    top: 35px;
+  }
+  .admin {
+    top: 65px;
+  }
+  .login-out.hover, .admin.hover {
+    color: #00b7ff;
+  }
+}

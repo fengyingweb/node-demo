@@ -1,0 +1,18 @@
+#app {
+  overflow-x: hidden; }
+
+#editor {
+  margin: 50px auto 20px; }
+
+.edui-default .edui-dialog {
+  top: 100px; }
+
+.form-wrapper {
+  margin-top: 50px; }
+  .form-wrapper .content-label {
+    text-align: left; }
+
+.release {
+  margin-bottom: 50px; }
+
+/*# sourceMappingURL=article.css.map */

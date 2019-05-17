@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Author" content="fengying">
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <title>风鹰Blog</title>
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/css/reg.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="app">
+    <% include header.ejs %>
+    <div class="head-cover"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <h1 class="text-center title">注册</h1>
+                <div class="form-box">
+                    <form class="reg-form form-horizontal" action="/reg" method="post" name="regForm">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3 text-right" for="txt">用户名:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" name="username" id="txt" autocomplete="off" placeholder="请输入用户名....">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3 text-right" for="psw">密码:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" name="password" id="psw" autocomplete="off" placeholder="请输入密码....">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3 text-right" for="confirPsw">确认密码:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" name="confirmPsw" id="confirPsw" autocomplete="off" placeholder="请再次输入密码....">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3 text-right" for="email">邮箱:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="email" name="email" id="email" autocomplete="off" placeholder="请输入邮箱....">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-3 col-lg-offset-3 text-center">
+                                <a id="submit" class="btn btn-primary" href="javascript:;">提交</a>
+                            </div>
+                            <div class="col-lg-3">
+                                <a id="reset" class="btn btn-primary" href="javascript:;">重置</a>
+                            </div>
+                        </div>
+                    </form>
+
+                    <%- locals.result %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% include footer.ejs %>
+</div>
+<script type="text/javascript" src="/js/jquery1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script>
+    (function () {
+        var regForm = $('.reg-form'),
+            user = $("#txt"),
+            psw = $("#psw"),
+            confirmPsw = $("#confirPsw"),
+            email = $("#email"),
+            submit = $("#submit"),
+            reset = $("#reset");
+
+
+        var pswReg = /^[0-9a-zA-Z][\w!@#$&*-+]{5,11}$/;
+        var emailReg = /^[1-9a-zA-Z][\w-]+@[1-9a-z]{2,}(\.[a-z]{2,}){1,2}$/;
+        var isSubmit = {
+             disable: function () {
+                var userVal = user.val(), pswVal = psw.val(), confirmPswVal = confirmPsw.val(), emailVal = email.val();
+                if (userVal === '' || pswVal === '' || confirmPswVal === '' || emailVal === '') {
+                    alert("不能为空");
+                    return false;
+                } else {
+                    if (!pswReg.test(pswVal)) {
+                        alert("密码不符合规则");
+                        return false;
+                    } else if (pswVal !== confirmPswVal) {
+                        alert("两次输入的密码不一致");
+                        return false;
+                    }else if (!emailReg.test(emailVal)) {
+                        alert("邮箱不符合规则");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+             }
+        };
+
+        submit.click(function () {
+            if (isSubmit.disable()) {
+                regForm.submit();
+            } else {
+                return false;
+            }
+        });
+        reset.click(function () {
+            user.val('');
+            psw.val('');
+            confirmPsw.val('');
+            email.val('');
+        });
+    })();
+</script>
+</body>
+</html>

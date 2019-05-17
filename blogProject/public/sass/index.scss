@@ -1,0 +1,100 @@
+#app .jumb-box.jumbotron {
+    height: 500px;
+}
+.article-list {
+    background: #efefef;
+    .article {
+        margin: 30px auto;
+        .art-con {
+            opacity: 0;
+            -webkit-transition: 0.8s;
+            -moz-transition: 0.8s;
+            -ms-transition: 0.8s;
+            transition: 0.8s;
+            a.thumbnail {
+                -webkit-transition: 0.5s;
+                -moz-transition: 0.5s;
+                -ms-transition: 0.5s;
+                transition: 0.5s;
+                &:hover {
+                    border-color: #db5941;
+                }
+            }
+            .img-box {
+                float: left;
+                width: 170px;
+                height: 168px;
+                margin-right: 20px;
+                opacity: 1;
+                -webkit-transition: 0.5s;
+                -moz-transition: 0.5s;
+                -ms-transition: 0.5s;
+                transition: 0.5s;
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+            .art-info {
+                color: #363636;
+                .title {
+                    padding: 0;
+                    line-height: 30px;
+                    -webkit-transition: 0.5s;
+                    -moz-transition: 0.5s;
+                    -ms-transition: 0.5s;
+                    transition: 0.5s;
+                    &:hover {
+                      color: #db5941; 
+                    }
+                }
+                p {
+                    padding-top: 5px;
+                    line-height: 24px;
+                    -webkit-transition: 0.5s;
+                    -moz-transition: 0.5s;
+                    -ms-transition: 0.5s;
+                    transition: 0.5s;
+                    &:hover {
+                      color: #db5941;
+                    }
+                }
+                .more-span {
+                    float: right;
+                    padding: 0 5px;
+                    border: 1px solid #db5941;
+                    margin-right: 10px;
+                    background: #fff;
+                    border-radius: 4px;
+                    line-height: 30px;
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: #db5941;
+                    -webkit-transition: 0.5s;
+                    -moz-transition: 0.5s;
+                    -ms-transition: 0.5s;
+                    transition: 0.5s;
+                    &:hover {
+                        background: #db5941;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        .list-item.active {
+            a {
+                background-color: #db5941;
+                border-color: #db5941;
+                cursor: pointer;
+            }
+        }
+        .pagination {
+            .disabled {
+                a {
+                    background-color: #eef1f6;
+                    border-color: #d1dbe5;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}

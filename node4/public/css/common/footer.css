@@ -1,0 +1,21 @@
+footer {
+    width: 100%;
+    background: #299982;
+}
+
+.footer-wrapper {
+    height: 100px;
+    font-size: 16px;
+    color: #fff;
+}
+.footer-wrapper p {
+    line-height: 100px;
+}
+.return-top {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    color: #299982;
+    cursor: pointer;
+    display: none;
+}

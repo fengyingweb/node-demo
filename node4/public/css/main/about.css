@@ -1,0 +1,34 @@
+#about {
+    padding: 20px;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+
+#about h2, #about h3 {
+    margin: 20px 0;
+}
+
+#about blockquote {
+    background: #f7f7f7;
+}
+
+#about code {
+    font-size: 14px;
+}
+
+#about .title2 {
+	text-align: center;
+}
+#about ul, #about ol {
+	padding: 0 20px;
+}
+#about ul li {
+	list-style: disc;
+	padding: 10px 0;
+}
+
+#about ol li {
+	list-style: decimal;
+	padding: 10px 0;
+}

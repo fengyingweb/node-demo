@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Author" content="fengying">
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <title>风鹰Blog</title>
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/public.css">
+    <link rel="stylesheet" type="text/css" href="../css/update.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<div id="app">
+		<% include ../header.ejs %>
+	    <div class="head-cover"></div>
+	    <div class="jumb-box jumbotron">
+	    	<div class="container">
+	    		<div class="row">
+	    			<div class="col-lg-6 col-md-6 col-sm-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
+	    				<h1 class="title text-center">修改用户</h1>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    
+	    <div class="main-con">
+	    	<div class="container">
+		      <div class="row">
+		      	<div class="col-lg-6 col-md-6 col-sm-8 col-lg-offset-3 col-md-offset-3 col-sm-offset-2">
+		      		<% if(dataList.length) {%>
+		      		<div class="user-info">
+		      			<span>用户ID:</span>
+		      			<span class="user-id"><%= dataList[0].id %></span>
+		      		</div>
+		      		<div class="user-info">
+		      			<span>旧用户名:</span>
+		      			<span><%= dataList[0].username %></span>
+		      		</div>
+		      		<div class="user-info">
+		      			<span>用户旧邮箱:</span>
+		      			<span><%= dataList[0].email %></span>
+		      		</div>
+		      		<div class="user-info">
+		      			<span>是否为管理员:</span>
+		      			<span><%= dataList[0].admin %></span>
+		      		</div>
+		      		<% } %>
+		      		<div class="update-info">
+		      			<form class="form form-horizontal" action="">
+		      				<div class="form-group">
+			      				<label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right" for="newUser">新用户名:</label>
+			      				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+			      				  <input class="form-control" type="text" id="newUser" auto-complete="off" placeholder="请输入新用户名..." />	
+			      				</div>
+			      			</div>
+			      			
+			      			<div class="form-group">
+			      				<label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right" for="newPsw">新密码:</label>
+			      				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+			      				  <input class="form-control" type="password" id="newPsw" auto-complete="off" placeholder="请输入新密码..." />	
+			      				</div>
+			      			</div>
+			      			
+			      			<div class="form-group">
+			      				<label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right" for="newEmail">新邮箱:</label>
+			      				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+			      				  <input class="form-control" type="text" id="newEmail" auto-complete="off" placeholder="请输入新邮箱..." />	
+			      				</div>
+			      			</div>
+			      			
+			      			<div class="form-group">
+			      				<label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right" for="newAdmin">是否为管理员:</label>
+			      				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+			      				  <select class="form-control" id="newAdmin" auto-complete="off" placeholder="请选择...">
+			      				  	<option>---请选择---</option>
+			      				  	<option value="1">是</option>
+			      				  	<option value="0">否</option>
+			      				  </select>	
+			      				</div>
+			      			</div>
+			      			
+			      			<div class="row text-center">
+			      				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+			      					<a class="save btn btn-primary" href="javascript:void(0)">保存</a>
+			      				</div>
+			      				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+			      					<a class="cancel btn btn-primary" href="javascript:void(0)">取消</a>
+			      				</div>
+			      			</div>
+		      			</form>
+		      			<h2 class="result title text-center"></h2>
+		      		</div>
+		      	</div>
+		      </div>
+		    </div>
+	    </div>
+	 
+	    <% include ../footer.ejs%>
+	</div>
+    <script type="text/javascript" src="../js/jquery1.11.3.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		(function () {
+			var $save = $(".save"),
+			    $cancel = $('.cancel'),
+			    $newUser = $('#newUser'),
+			    $newPsw = $('#newPsw'),
+			    $newEmail = $('#newEmail'),
+			    $newAdmin = $('#newAdmin'),
+			    $userId = $('.user-id'),
+			    $result = $('.result'),
+			    $input = $('input');
+			    
+			    $input.on('keyup', function () {
+			    	var val = $(this).val();
+			    	if (val === ' ') {
+			    		$(this).val('');
+			    	}
+			    });
+			    
+			    // 保存
+			    $save.on('click', function () {
+			    	var nusername = $newUser.val(),
+			    	    npsw = $newPsw.val(),
+			    	    nemail = $newEmail.val(),
+			    	    nadmin = $newAdmin.val();
+			    	    $.ajax({
+			    	    	url: '/admin/update',
+			    	    	type: 'post',
+			    	    	dataType: 'json',
+			    	    	data: {
+			    	    		id: $userId.text(),
+			    	    		username: nusername? nusername : "<%= dataList[0].username %>",
+			    	    		password: npsw? npsw : "<%= dataList[0].password %>",
+			    	    		email: nemail? nemail : "<%= dataList[0].email %>",
+			    	    		admin: nadmin? nadmin : "<%= dataList[0].admin %>"
+			    	    	},
+			    	    	success: function (res) {
+			    	    		if (res && res.success) {
+			    	    			$result.text(res.msg).fadeIn(800, function () {
+			    	    				location.href = '/admin/user';
+			    	    			});
+			    	    		}
+			    	    	},
+			    	    	error: function () {
+			    	    		
+			    	    	}
+			    	    })
+			    });
+			    // 取消
+			    $cancel.on('click', function () {
+			    	$newUser.val('');
+			    	$newPsw.val('');
+			    	$newEmail.val('');
+			    	$newAdmin.val('');
+			    	$result.fadeOut(500, function () {
+			    		$(this).text('');
+			    	});
+			    })
+		})();
+	</script>
+</body>
+</html>

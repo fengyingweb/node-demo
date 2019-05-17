@@ -1,0 +1,81 @@
+.wecha-top {
+    margin: 20px 0;
+}
+.wecha-top h2 i {
+    margin: 0 5px;
+    color: #f53d3d;
+}
+.wecha-user {
+    position: relative;
+    margin-bottom: 20px;
+}
+.wecha-user .input-group-addon {
+    background: #f53d3d;
+    color: #fff;
+}
+.wecha-user .btn-into {
+    position: absolute;
+    top: -2px;
+    right: -100px;
+    font-size: 16px;
+}
+
+.wecha-wrapper {
+    position: relative;
+    height: 526px;
+    margin-bottom: 20px;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #f53d3d;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(245, 61, 61, .5);
+}
+
+.user-msg {
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+}
+.user-box {
+    position: absolute;
+    top: 0;
+    left : -30%;
+    width: 30%;
+    height: 100%;
+    background: #fff;
+    border: 1px solid #f53d3d;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(245, 61, 61, .5);
+    overflow: auto;
+}
+
+.user-count {
+    border-bottom: 1px solid #f53d3d;
+    padding: 0 15px;
+    line-height: 30px;
+    font-size: 16px;
+}
+.user-count .count {
+    color: #f53d3d;
+}
+.user-box-list li {
+    padding: 0 15px;
+    line-height: 30px;
+    font-size: 16px;
+}
+.user-box-list li:nth-child(odd) {
+    background: #ecf5ff;
+}
+
+#send-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    z-index: 1000;
+}
+
+.disable {
+    background: '#f0f0f0';
+    color: '#363636';
+    cursor: 'not-allowed';
+}

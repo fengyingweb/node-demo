@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Author" content="fengying">
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <title>风鹰Blog</title>
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/public.css">
+    <link rel="stylesheet" type="text/css" href="../css/user.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<div id="app">
+		<% include ../header.ejs %>
+	    <div class="head-cover"></div>
+	    <div class="jumb-box jumbotron">
+	    	<div class="container">
+	    		<div class="row">
+	    			<div class="col-lg-6 col-md-6 col-sm-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
+	    				<h1 class="title text-center">用户管理</h1>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    
+	    <div class="main-con">
+	    	<div class="container">
+		    	<div class="row">
+		    		<div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
+		    			<div class="table-box">
+		    				<div class="remove-btn">
+		    					<a class="remove btn btn-primary" role="button" href="javascript:void(0)">删除</a>
+		    				</div>
+		    			
+		    				<table class="table table-bordered table-striped table-hover table-responsive">
+		    					<caption class="text-center">用户信息</caption>
+		    					<thead>
+		    						<tr>
+		    							<th>选择</th>
+		    							<th>用户名</th>
+		    							<th>邮箱</th>
+		    							<th>管理员</th>
+		    							<th>编辑</th>
+		    						</tr>
+		    					</thead>
+		    					<tbody>
+		    						<% if (dataList) {%>
+		    							<% for (var i=0; i<dataList.length; i++) {%>
+		    								<tr>
+		    								  <td>
+		    								  	  <input class="check-box form-control" type="checkbox" value="<%= dataList[i].id %>" />
+		    								  </td>
+		    								  <td>
+		    								  	<%= dataList[i].username %>
+		    								  </td>
+		    								  <td>
+		    								  	<%= dataList[i].email %>
+		    								  </td>
+		    								  <td>
+		    								  	<%= dataList[i].admin %>
+		    								  </td>
+		    								  <td>
+		    								  	<a class="btn btn-primary" href="/admin/update?id=<%= dataList[i].id %>">修改</a>
+		    								  </td>
+		    								</tr>
+		    							<% } %>
+		    						<% } %>
+		    					</tbody>
+		    				</table>
+		    			</div>
+		    		</div>
+		    	</div>
+		    </div>
+	    </div>
+	 
+	    <% include ../footer.ejs%>
+	</div>
+    <script type="text/javascript" src="../js/jquery1.11.3.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/user.js"></script>
+</body>
+</html>

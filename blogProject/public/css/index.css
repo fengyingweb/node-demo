@@ -1,0 +1,80 @@
+#app .jumb-box.jumbotron {
+  height: 500px; }
+
+.article-list {
+  background: #efefef; }
+  .article-list .article {
+    margin: 30px auto; }
+    .article-list .article .art-con {
+      opacity: 0;
+      -webkit-transition: 0.8s;
+      -moz-transition: 0.8s;
+      -ms-transition: 0.8s;
+      transition: 0.8s; }
+      .article-list .article .art-con a.thumbnail {
+        -webkit-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -ms-transition: 0.5s;
+        transition: 0.5s; }
+        .article-list .article .art-con a.thumbnail:hover {
+          border-color: #db5941; }
+      .article-list .article .art-con .img-box {
+        float: left;
+        width: 170px;
+        height: 168px;
+        margin-right: 20px;
+        opacity: 1;
+        -webkit-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -ms-transition: 0.5s;
+        transition: 0.5s; }
+        .article-list .article .art-con .img-box:hover {
+          opacity: 0.6; }
+      .article-list .article .art-con .art-info {
+        color: #363636; }
+        .article-list .article .art-con .art-info .title {
+          padding: 0;
+          line-height: 30px;
+          -webkit-transition: 0.5s;
+          -moz-transition: 0.5s;
+          -ms-transition: 0.5s;
+          transition: 0.5s; }
+          .article-list .article .art-con .art-info .title:hover {
+            color: #db5941; }
+        .article-list .article .art-con .art-info p {
+          padding-top: 5px;
+          line-height: 24px;
+          -webkit-transition: 0.5s;
+          -moz-transition: 0.5s;
+          -ms-transition: 0.5s;
+          transition: 0.5s; }
+          .article-list .article .art-con .art-info p:hover {
+            color: #db5941; }
+        .article-list .article .art-con .art-info .more-span {
+          float: right;
+          padding: 0 5px;
+          border: 1px solid #db5941;
+          margin-right: 10px;
+          background: #fff;
+          border-radius: 4px;
+          line-height: 30px;
+          font-size: 18px;
+          font-weight: 500;
+          color: #db5941;
+          -webkit-transition: 0.5s;
+          -moz-transition: 0.5s;
+          -ms-transition: 0.5s;
+          transition: 0.5s; }
+          .article-list .article .art-con .art-info .more-span:hover {
+            background: #db5941;
+            color: #fff; }
+    .article-list .article .list-item.active a {
+      background-color: #db5941;
+      border-color: #db5941;
+      cursor: pointer; }
+    .article-list .article .pagination .disabled a {
+      background-color: #eef1f6;
+      border-color: #d1dbe5;
+      cursor: not-allowed; }
+
+/*# sourceMappingURL=index.css.map */

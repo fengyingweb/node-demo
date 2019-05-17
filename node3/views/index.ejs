@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta name="Author" content="fengying">
+        <meta name="Keywords" content="">
+        <meta name="description" content="">
+        <title>风鹰Blog</title>
+        <!-- Bootstrap -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="/css/header.css">
+        <link rel="stylesheet" type="text/css" href="/css/public.css">
+        <link rel="stylesheet" type="text/css" href="/css/index.css">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="app">
+            <% include header.ejs %>
+            <div class="head-cover"></div>
+            <div class="jumbotron">
+                <div class="container" style="height: 300px;">
+                	<h1 class="title text-center">欢迎来到风鹰Blog首页</h1>
+                </div>
+            </div>
+
+            <div class="container">
+            	<!--开始导航-->
+            		<ul class="navOne-list nav nav-tabs nav-justified">
+            			<% for (var j=0; j<navData.length; j++) {%>
+            				<li class="nav-itemA">
+            					<a href="#"><%= navData[j].title%></a>
+            					<ul class="navTow-list nav nav-pills nav-stacked">
+            						<% for (var k=0; k<navData[j]['children'].length; k++) { %>
+            						  <li><a href="#"><%= navData[j]['children'][k].title %></a></li>
+            						<% } %>
+            					</ul>
+            				</li>
+            			<% } %>
+            		</ul>
+                <!--结束导航-->
+                
+                <!--开始文章列表-->
+                <div class="row">
+                    <% for (var i=0; i<data.length; i++) { %>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <a class="thumbnail" href="/detail/<%= data[i].id%>.html">
+                            <img class="img-responsive" src="<%= data[i].img %>" alt="图片不存在">
+                            <div class="caption">
+                                <h3 class="title"><span>标题：<%= data[i].title %></span></h3>
+                                <div class="tag"><span>标签：<%= data[i].tag %></span></div>
+                                <div class="author"><span>作者：<%= data[i].author %></span></div>
+                                <div class="time"><span>发布时间：<%= data[i].time %></span></div>
+                            </div>
+                        </a>
+                    </div>
+                    <% } %>
+                </div>
+                <!--结束文章列表-->
+                <div class="row">
+                	<div class="col-lg-6 col-lg-offset-3">
+                		<h3 class="title text-center">
+                			<a href="/article/list-1.html">文章列表页</a>
+                		</h3>
+                	</div>
+                </div>
+            </div>
+            <% include footer.ejs %>
+            <% include login.ejs %>
+        </div>
+      <script type="text/javascript" src="/js/jquery1.11.3.min.js"></script>
+      <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script>
+            (function(){
+                // 登陆弹窗
+                var myModal = $("#myModal"),
+                    linkLogin = $('.link-login'),
+                    btnLogin = $("#btn-login"),
+                    btnReset = $("#btn-reset"),
+                    user = $("#user"),
+                    passwd = $("#passwd");
+
+                var pwsReg = /^[0-9a-zA-Z][\w!@#$&*-+]{5,11}$/;
+
+                // 初始化弹窗
+                myModal.modal({
+                    show: false,
+                    keyboard: true,
+                    backdrop: true
+                });
+
+                linkLogin.on('click', function () {
+                    myModal.modal("toggle");
+                });
+
+                btnLogin.on('click', function() {
+                    if (pwsReg.test(passwd.val())) {
+                        $.ajax({
+                            url: '/',
+                            type: 'post',
+                            dataType: "json",
+                            data: {
+                                username: user.val(),
+                                password: passwd.val()
+                            },
+                            success: function (data) {
+                                // console.log(data);
+                                if (data.success) {
+                                    location.reload();
+                                }
+                            },
+                            error: function (data) {
+                               alert(data.responseText);
+                            }
+                        });
+                    } else {
+                        alert("密码长度不够或不符合规范");
+                    }
+                });
+
+                btnReset.on('click', function () {
+                    user.val('');
+                    passwd.val('');
+                    myModal.modal("toggle");
+                });
+            })();
+
+            (function(){
+                var userLink = $('.link-user'),
+                    loginOut = $('.login-out'),
+                    admin = $('.admin');
+
+                // 显示退出登陆按钮
+                userLink.hover(function () {
+                    loginOut.fadeIn(500).addClass('hover');
+                    admin.fadeIn(500).addClass('hover');
+                }, function () {
+                    loginOut.fadeOut(500).removeClass('hover');
+                    admin.fadeOut(500).removeClass('hover');
+                });
+
+                //退出登陆
+                loginOut.click(function() {
+                   location.href = '/outLogin';
+                });
+                // 进入管理员页面
+                admin.click(function(){
+                   location.href= '/admin';
+                });
+            })();
+            
+            // 导航
+            (function () {
+            	var navItemA = $('.nav-itemA');
+            	navItemA.eq(0).addClass('active');
+            	
+            	navItemA.hover(function () {
+            		$(this).addClass('active').siblings().removeClass('active');
+            		$(this).find('.navTow-list').fadeIn(800);
+            	}, function () {
+            		$(this).find('.navTow-list').fadeOut(800);
+            	})
+            })();
+        </script>
+    </body>
+</html>

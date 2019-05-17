@@ -1,0 +1,43 @@
+.editor-box {
+    margin: 30px 0;
+    .release {
+        margin-top: 15px;
+    }
+}
+.details {
+    color: #363636;
+    .info {
+        line-height: 30px;
+    }
+    .con {
+        margin-top: 20px;
+        p {
+            text-indent: 2em;
+            line-height: 24px;
+        }
+    }
+}
+.comment-box {
+    margin-top: 30px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    .com-count {
+        padding: 10px 0 10px 20px;
+        font-size: 20px;
+        span {
+            color: #db5941;
+        }
+    }
+    .comment-con {
+        padding-bottom: 20px;
+    }
+    .con-info {
+        width: 70%;
+        padding-left: 20px;
+        line-height: 24px;
+    }
+    .com-time {
+        padding-right: 20px;
+        line-height: 24px;
+    }
+}

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <!--<form class="form-horizontal" action="/reg" method="post" name="formPost">
+            <div class="form-group">
+                <label for="txt" class="control-label col-lg-2 text-right">用户名:</label>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" name="userName" id="txt" autocomplete="off" placeholder="请输入用户名...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="psw" class="control-label col-lg-2 text-right">密码:</label>
+                <div class="col-lg-4">
+                    <input type="password" class="form-control" name="password" id="psw" autocomplete="off" placeholder="请输入密码...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="control-label col-lg-2 text-right">邮箱:</label>
+                <div class="col-lg-4">
+                    <input type="email" class="form-control" name="email" id="email" autocomplete="off" placeholder="请输入用户名...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-6 text-center">
+                    <input class="btn btn-primary" type="submit" value="提交">
+                    <input class="btn btn-info" type="reset" value="取消">
+                </div>
+            </div>
+        </form>-->
+
+        <div class="row" style="margin-top: 20px;">
+            <label class="control-label col-lg-2 text-right" for="txt1">用户名:</label>
+            <div class="col-lg-4">
+                <input class="form-control" type="text" name="userName" id="txt1" autocomplete="off" placeholder="请输入用户名...">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <label class="control-label col-lg-2 text-right" for="psw">密码:</label>
+            <div class="col-lg-4">
+                <input type="password" class="form-control" name="password" id="psw" placeholder="请输入密码...">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <label class="control-label col-lg-2 text-right" for="emil">邮箱:</label>
+            <div class="col-lg-4">
+                <input class="form-control" type="email" name="email" id="emil" autocomplete="off" placeholder="请输入邮箱...">
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-lg-6 text-center">
+                <button class="btn btn-primary">submit</button>
+                <input class="btn btn-info" type="reset" value="reset">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script>
+        (function () {
+            var txt = $("#txt1"),
+                psw = $("#psw"),
+                emal = $("#emil"),
+                submit = $("button");
+            submit.click(function () {
+                // console.log(emal.val());
+                $.ajax({
+                    url: '/reg',
+                    type: 'post',
+                    data: {
+                        userName: txt.val(),
+                        password: psw.val(),
+                        email: emal.val()
+                    },
+                    success: function (data) {
+                        // console.log(data);
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

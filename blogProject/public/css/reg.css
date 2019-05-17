@@ -1,0 +1,29 @@
+#app {
+  height: 100%;
+  background: #db5941;
+  color: #fff;
+  color: rgba(255, 255, 255, 0.5); }
+
+.form-box .form-group {
+  margin-bottom: 25px; }
+.form-box .btn-primary {
+  background: #2f2f2f;
+  border-color: #2f2f2f;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s; }
+  .form-box .btn-primary:hover, .form-box .btn-primary:active {
+    background: #2A80B9;
+    border-color: #2A80B9; }
+
+.user-tip, .psw-tip, .confirm-tip, .email-tip {
+  display: none;
+  padding: 0;
+  font-size: 12px; }
+
+.user-info {
+  padding: 0;
+  font-size: 12px; }
+
+/*# sourceMappingURL=reg.css.map */

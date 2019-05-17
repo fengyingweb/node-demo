@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Author" content="fengying">
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <title>风鹰Blog</title>
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/css/user.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="app">
+        <% include ../header.ejs %>
+        <div class="head-cover"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3 text-center">
+                    <h1 class="title">欢迎来到用户管理页面</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="title">用户信息</h2>
+                    <% for (var i= 0; i<datas.length; i++) {%>
+                       <div class="user">
+                           <span>用户名: <%= datas[i].username %></span>
+                           <span>是否为管理员:<%= datas[i].admin %></span>
+                           <input type="radio" name="userId"  value="<%= datas[i].id %>">
+                           <a href="/admin/user/update?id=<%= datas[i].id %>">修改</a>
+                       </div>
+                    <% } %>
+                    <div class="col-lg-3 col-lg-offset-2 delete text-center"><a href="javascript:;" class="btn btn-info">删除</a></div>
+                </div>
+            </div>
+        </div>
+        <% include ../footer.ejs %>
+    </div>
+    <script type="text/javascript" src="/js/jquery1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script>
+        (function () {
+            var del = $('.delete').find('a'),
+                radio = $('input[type="radio"]'),
+                id = null;
+
+            radio.click(function() {
+                id = $(this).val();
+            });
+
+            del.click(function() {
+                $.ajax({
+                    url: '/admin/user',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        id: id
+                    },
+                    success: function (data) {
+                        if (data.success) {
+                            location.reload();
+                        }
+                    },
+                    error: function (data) {
+                        console.log(data.responseText);
+                    }
+                })
+            });
+        })();
+    </script>
+</body>
+</html>

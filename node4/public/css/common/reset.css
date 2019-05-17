@@ -1,0 +1,86 @@
+@charset "utf-8";
+html{
+	font-family:"Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+	/*谷歌浏览器最小字体为12px*/
+	-webkit-text-size-adjust:100%;/*100%|none关闭字体大小自动调整功能*/
+	-webkit-tap-highlight-color:transparent;/*a标签及拥有:active伪类的元素有默认的高亮显示框*/
+	-webkit-user-select:none;/*禁止文本被选中*/
+}
+
+body{
+	overflow-x:hidden;
+	-webkit-overflow-scrolling:touch;/*开始mobile网页快速滚动和回弹的效果*/
+	background: url('../../image/bg.png') no-repeat top 60px center #96ceb4;
+	background-attachment: fixed;
+	font-size:14px;
+}
+
+html,body,div,header,nav,section,article,aside,footer,canvas,audio,video,ul,li,ol,dl,dt,dd,p,span,i,a,strong,em,h1,h2,h3,h4,h5,h6,form,input,button,table,tr,td,th,tbody,tfoot{
+	margin:0px;
+	padding:0px;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+a{
+	color:#363636;
+	text-decoration:none;
+	display:block;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+img{
+	border:0px;
+	display:block;
+	vertical-align: middle;
+}
+
+/*input{
+	-webkit-appearance:none;
+	border:none;
+	outline:none;
+	vertical-align:middle;
+}*/
+
+li{
+	list-style:none;
+}
+
+.fl{
+	float:left;
+}
+
+.fr{
+	float:right;
+}
+
+.clearfix:after{
+	content:"";
+	display:block;
+	width:100%;
+	clear:both;
+}
+
+/*滚动条样式*/
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+	background: rgba(0, 0, 0, .2);
+}
+
+::webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+	border-radius: 0;
+	background: rgba(0, 0, 0, .1);
+}

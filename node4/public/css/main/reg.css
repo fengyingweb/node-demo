@@ -1,0 +1,38 @@
+.title1 {
+    margin: 20px 0;
+}
+#reg-form {
+    padding-bottom: 143px;
+}
+.form-wrapper .form-group {
+    margin-bottom: 25px;
+}
+
+.form-wrapper .form-group label {
+    position: relative;
+}
+
+label.item-require:after {
+    content: '*';
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #f30;
+}
+
+.form-group .input-box {
+    position: relative;
+}
+
+.error-tip {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 14px;
+    color: #f30;
+    display: none;
+}
+
+.item-error {
+    border-color: #f30 !important;
+}

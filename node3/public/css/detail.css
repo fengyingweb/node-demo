@@ -1,0 +1,26 @@
+.tag, .author, .time {
+  line-height: 30px;
+  font-weight: 600; }
+
+.content {
+  margin-top: 20px; }
+  .content p {
+    line-height: 28px;
+    text-indent: 2em; }
+
+.comment {
+  padding-bottom: 20px;
+  border: 1px solid #00b7ff;
+  border-radius: 5px; }
+  .comment .title {
+    padding-left: 15px; }
+
+.comment-con {
+  margin-top: 20px; }
+
+.user-comment {
+  margin: 30px 0; }
+  .user-comment .submit-comment {
+    margin-top: 15px; }
+
+/*# sourceMappingURL=detail.css.map */

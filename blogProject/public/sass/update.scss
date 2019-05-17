@@ -1,0 +1,22 @@
+.user-info {
+    margin-top: 20px;
+    font-size: 20px;
+}
+.update-info {
+    margin: 30px 0 80px;
+    .btn-primary {
+        background: #2f2f2f;
+        border-color: #2f2f2f;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        transition: all 0.5s;
+        &:hover, &:active {
+            background:#2A80B9;
+            border-color: #2A80B9;
+        }
+    }
+    .result {
+        display: none;
+    }
+}

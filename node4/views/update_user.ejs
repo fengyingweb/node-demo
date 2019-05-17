@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, Chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes"><!--删除默认的苹果菜单栏，工具栏，全屏显示-->
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black"><!--设置苹果app应用下状态栏颜色-->
+	    <meta name="format-detection" content="telephone=no,email=no"><!--格式检测:（数字、邮箱） no不识别为电话号码、邮箱-->
+        <meta name="author" content="feng ying" />
+        <meta name="keywords" content="node, blog" />
+        <meta name="description" content="">
+        <link href="/css/lib/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/css/lib/font-awesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="/css/common/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/css/common/header.css" type="text/css" />
+        <link rel="stylesheet" href="/css/common/footer.css" type="text/css" />
+        <link rel="stylesheet" href="/css/common/message.css" type="text/css" />
+        <link rel="stylesheet" href="/css/main/reg.css" type="text/css" />
+        <title>风鹰blog</title>
+        <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="app">
+          <% include header.ejs %>
+          <div class="container" style="padding: 0 50px; background: rgba(255, 255, 255, .5);">
+              <div class="row">
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2">
+                        <h1 class="text-center title1">修改用户</h1>
+
+                        <div class="form-wrapper">
+                            <form id ="reg-form" data-id="<%= data[0].id %>" class="form-horizontal" name="regForm">
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label item-require" for="userName">用户名:</label>
+                                    <div class="input-box col-lg-6 col-md-2 col-sm-6 col-xs-6">
+                                        <div class="error-tip"></div>
+                                        <input class="form-control" type="text" name="userName" id="userName" autocomplete="off" value="<%= data[0].userName%>" placeholder="请输入用户名..." />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label item-require" for="psw">密码:</label>
+                                    <div class="input-box col-lg-6 col-md-2 col-sm-6 col-xs-6">
+                                        <div class="error-tip"></div>
+                                        <input class="form-control" type="password" name="password" id="psw" autocomplete="off" value="<%= data[0].password %>" placeholder="请输入密码..." />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label item-require" for="checkPsw">确认密码:</label>
+                                    <div class="input-box col-lg-6 col-md-2 col-sm-6 col-xs-6">
+                                        <div class="error-tip"></div>
+                                        <input class="form-control" type="password" name="checkPsw" id="checkPsw" autocomplete="off" value="<%= data[0].password %>" placeholder="请再次输入密码..." />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label item-require" for="email">邮箱:</label>
+                                    <div class="input-box col-lg-6 col-md-2 col-sm-6 col-xs-6">
+                                        <div class="error-tip"></div>
+                                        <input class="form-control" type="email" name="email" id="email" autocomplete="off" value="<%= data[0].email %>" placeholder="请输入邮箱..." />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label item-require">是否为管理员:</label>
+                                    <div class="input-box col-lg-6 col-md-2 col-sm-6 col-xs-6">
+                                        <label for="yes" class="radio-inline">
+                                            <input type="radio" name="admin" id="yes" data-admin="<%= data[0].admin %>" value="1" autocomplete="off"/>是
+                                        </label>
+
+                                        <label for="no" class="radio-inline">
+                                            <input type="radio" name="admin" id="no" value="0" autocomplete="off"/>否
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-lg-6 col-md-2 col-sm-6 col-xs-6 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 text-center">
+                                        <a id="btn-submit" class="reg-btn btn btn-info" href="javascript:void(0)">确定</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                  </div>
+              </div>
+          </div>
+          <% include message.ejs %>
+          <% include footer.ejs %>
+        </div>
+        <script type="text/javascript" src="/js/lib/jquery-2.2.0.min.js"></script>
+        <script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/common/header.js"></script>
+        <script type="text/javascript" src="/js/common/footer.js"></script>
+        <script type="text/javascript" src="/js/main/update_user.js"></script>
+    </body>
+</html>

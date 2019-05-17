@@ -1,0 +1,49 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+	box-sizing: border-box;
+}
+header, footer, nav, section,
+article, aside, hgroup, figure,
+figcaption {
+	display: block;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 500;
+}
+ul, ol, li {
+	list-style: none;
+}
+a, a:hover {
+	text-decoration: none;
+}
+
+img {
+	border: 0;
+	border: none;
+	vertical-align: middle;
+}
+input, select, textarea {
+	outline: none;
+	vertical-align: middle;
+}
+html, body {
+  height: 100%;
+}
+body {
+	font-size: 16px;
+}
+table {
+	border-collapse: collapse;
+}

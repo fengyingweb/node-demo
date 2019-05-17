@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, Chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes"><!--删除默认的苹果菜单栏，工具栏，全屏显示-->
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black"><!--设置苹果app应用下状态栏颜色-->
+	    <meta name="format-detection" content="telephone=no,email=no"><!--格式检测:（数字、邮箱） no不识别为电话号码、邮箱-->
+        <meta name="author" content="feng ying" />
+        <meta name="keywords" content="node, blog" />
+        <meta name="description" content="">
+        <link href="/css/lib/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/css/lib/font-awesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="/css/common/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/css/common/header.css" type="text/css" />
+        <link rel="stylesheet" href="/css/common/footer.css" type="text/css" />
+        <link rel="stylesheet" href="/css/main/index.css" type="text/css" />
+        <title>风鹰blog</title>
+        <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="app">
+          <% include header.ejs %>
+          <div class="container" style="padding: 0 50px; background: rgba(255, 255, 255, .5);">
+              <article class="main">
+                  <div class="banner-wraper">
+                      <div class="banner">
+                          <ul class="banner-list clearfix">
+                              <li class="banner-item fl"><img class="img-responsive" src="/image/banner03.jpg" alt="图片不存在"></li>
+                              <li class="banner-item fl"><img class="img-responsive" src="/image/banner01.jpg" alt="图片不存在"></li>
+                              <li class="banner-item fl"><img class="img-responsive" src="/image/banner02.jpg" alt="图片不存在"></li>
+                              <li class="banner-item fl"><img class="img-responsive" src="/image/banner03.jpg" alt="图片不存在"></li>
+                              <li class="banner-item fl"><img class="img-responsive" src="/image/banner01.jpg" alt="图片不存在"></li>
+                          </ul>
+                      </div>
+
+                      <div class="banner-btn">
+                          <span class="btn-item active">1</span>
+                          <span class="btn-item">2</span>
+                          <span class="btn-item">3</span>
+                      </div>
+
+                      <div class="arrow clearfix">
+                          <div class="arrow-left fl">
+                              <i class="fa fa-chevron-circle-left fa-4x"></i>
+                          </div>
+                          <div class="arrow-right fr">
+                              <i class="fa fa-chevron-circle-right fa-4x"></i>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                  	<% if (dataList.length) {%>
+                  		<% for (var i=0; i < dataList.length; i++) {%>
+                  			<div class="col-lg-3 col-md-3 col-sm-6">
+	                          <div class="thumbnail">
+	                              <img src="<%= dataList[i].imgUrl %>" alt="图片不存在" />
+	                              <div class="caption">
+	                                  <h4 class="title4 text-center">
+	                                      <a href="/detail/<%= dataList[i].id %>.html"><%= dataList[i].title %></a>
+	                                  </h4>
+	                                  <p class="desc"><%= dataList[i].desc%></p>
+	                              </div>
+	                              <div class="thumbnail-cover text-center">
+	                                  <a href="/detail/<%= dataList[i].id %>.html">点击查看</a>
+	                              </div>
+	                          </div>
+	                      </div>
+                  		<% } %>
+                  	<% } %>
+                  </div>
+
+                  <div class="row main-con">
+                      <div class="col-lg-8 col-md-8 col-sm-8 con-left">
+                          <h2 class="con-title">最新文章</h2>
+                          <ul class="new-blog">
+                              <!--<li>
+                                  <h3 class="blog-title">
+                                      <span>个人博客</span>
+                                      <a href="">帝国cms 首页或者列表无图，不使用默认图片的方法</a>
+                                  </h3>
+                                  <div class="blog-info row">
+                                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 blog-pic">
+                                          <a href=""><img class="img-responsive" src="/image/t01.jpg" alt="图片不存在"></a>
+                                      </div>
+                                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                          <p class="blog-desc">帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
+                                      </div>
+                                  </div>
+
+                                  <div class="author-info clearfix">
+                                      <div class="fl author-lf">
+                                          <span class="fl-time">2018-05-01</span>
+                                          <span class="fl-preview">
+                                             <a href="">浏览<i>(1926)</i></a>
+                                          </span>
+                                      </div>
+                                      <div class="fr author-ri">
+                                          <a href="">阅读原文&gt;&gt;</a>
+                                      </div>
+                                  </div>
+
+                                  <div class="line"></div>
+                              </li>-->
+                              
+                              <!--<li>
+                                <h3 class="blog-title">
+                                    <span>个人博客</span>
+                                    <a href="">帝国cms 首页或者列表无图，不使用默认图片的方法</a>
+                                </h3>
+                                <div class="blog-info row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 blog-pic">
+                                        <a href=""><img class="img-responsive" src="/image/t02.jpg" alt="图片不存在"></a>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                        <p class="blog-desc">帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
+                                    </div>
+                                </div>
+
+                                <div class="author-info clearfix">
+                                    <div class="fl author-lf">
+                                        <span class="fl-time">2018-05-01</span>
+                                        <span class="fl-preview">
+                                           <a href="">浏览<i>(1926)</i></a>
+                                        </span>
+                                    </div>
+                                    <div class="fr author-ri">
+                                        <a href="">阅读原文&gt;&gt;</a>
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+                             </li>
+
+                            <li>
+                                <h3 class="blog-title">
+                                    <span>个人博客</span>
+                                    <a href="">帝国cms 首页或者列表无图，不使用默认图片的方法</a>
+                                </h3>
+                                <div class="blog-info row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 blog-pic">
+                                        <a href=""><img class="img-responsive" src="/image/t03.jpg" alt="图片不存在"></a>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                        <p class="blog-desc">帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
+                                    </div>
+                                </div>
+
+                                <div class="author-info clearfix">
+                                    <div class="fl author-lf">
+                                        <span class="fl-time">2018-05-01</span>
+                                        <span class="fl-preview">
+                                           <a href="">浏览<i>(1926)</i></a>
+                                        </span>
+                                    </div>
+                                    <div class="fr author-ri">
+                                        <a href="">阅读原文&gt;&gt;</a>
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+                            </li>
+
+                            <li>
+                                <h3 class="blog-title">
+                                    <span>个人博客</span>
+                                    <a href="">帝国cms 首页或者列表无图，不使用默认图片的方法</a>
+                                </h3>
+                                <div class="blog-info row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 blog-pic">
+                                        <a href=""><img class="img-responsive" src="/image/t03.jpg" alt="图片不存在"></a>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                        <p class="blog-desc">帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
+                                    </div>
+                                </div>
+
+                                <div class="author-info clearfix">
+                                    <div class="fl author-lf">
+                                        <span class="fl-time">2018-05-01</span>
+                                        <span class="fl-preview">
+                                           <a href="">浏览<i>(1926)</i></a>
+                                        </span>
+                                    </div>
+                                    <div class="fr author-ri">
+                                        <a href="">阅读原文&gt;&gt;</a>
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+                            </li>
+
+                            <li>
+                                <h3 class="blog-title">
+                                    <span>个人博客</span>
+                                    <a href="">帝国cms 首页或者列表无图，不使用默认图片的方法</a>
+                                </h3>
+                                <div class="blog-info row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 blog-pic">
+                                        <a href=""><img class="img-responsive" src="/image/t03.jpg" alt="图片不存在"></a>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                        <p class="blog-desc">帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
+                                    </div>
+                                </div>
+
+                                <div class="author-info clearfix">
+                                    <div class="fl author-lf">
+                                        <span class="fl-time">2018-05-01</span>
+                                        <span class="fl-preview">
+                                           <a href="">浏览<i>(1926)</i></a>
+                                        </span>
+                                    </div>
+                                    <div class="fr author-ri">
+                                        <a href="">阅读原文&gt;&gt;</a>
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+                            </li>
+
+                            <li>
+                                <h3 class="blog-title">
+                                    <span>个人博客</span>
+                                    <a href="">帝国cms 首页或者列表无图，不使用默认图片的方法</a>
+                                </h3>
+                                <div class="blog-info row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 blog-pic">
+                                        <a href=""><img class="img-responsive" src="/image/t03.jpg" alt="图片不存在"></a>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                        <p class="blog-desc">帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
+                                    </div>
+                                </div>
+
+                                <div class="author-info clearfix">
+                                    <div class="fl author-lf">
+                                        <span class="fl-time">2018-05-01</span>
+                                        <span class="fl-preview">
+                                           <a href="">浏览<i>(1926)</i></a>
+                                        </span>
+                                    </div>
+                                    <div class="fr author-ri">
+                                        <a href="">阅读原文&gt;&gt;</a>
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+                            </li>-->
+                          </ul>
+                          
+                          <!--分页-->
+                          <ul class="pagination new-blog-page">
+                          	<!--<li class="prev-page"><a href="javascript:void(0)">&laquo;</a></li>
+                          	<li class="page-item active"><a href="javascript:void(0)">1</a></li>
+                          	<li class="page-item"><a href="javascript:void(0)">2</a></li>
+                          	<li class="page-item"><a href="javascript:void(0)">3</a></li>
+                          	<li class="page-item"><a href="javascript:void(0)">4</a></li>
+                          	<li class="page-item"><a href="javascript:void(0)">5</a></li>
+                          	<li class="next-page"><a href="javascript:void(0)">&raquo;</a></li>-->
+                          </ul>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 con-right">
+                        <div class="blog-con-r">
+                            <h2 class="con-title">文章排行</h2>
+                            <ul class="blog-r-list">
+                            	<% if (dataList.length) {%>
+                            		<% for (var j=0; j < dataList.length; j++) {%>
+                            			<li>
+                            				<h4 class="blog-title4">
+		                                        <a href="/detail/<%= dataList[j].id%>.html">【活动文章】<%= dataList[j].title %></a>
+		                                    </h4>
+		                                    <div class="blog-r-info clearfix">
+		                                        <div class="blog-r-pic fl">
+		                                            <img src="<%= dataList[j].imgUrl %>" alt="图片不存在">
+		                                        </div>
+		                                        <p class="blog-r-desc">
+		                                            <%= dataList[j].desc %>
+		                                        </p>
+		                                    </div>
+                            			</li>
+                            		<% } %>
+                            	<% } else {%>
+                            		<li>
+                            			<h2>暂无数据</h2>
+                            		</li>
+                            	<% } %>
+                            </ul>
+                        </div>
+
+                        <div class="blog-con-r">
+                            <h2 class="con-title">站长推荐</h2>
+                            <ul class="blog-r-list">
+                            	<% if (dataList.length) {%>
+                            		<% for (var j=0; j < dataList.length; j++) {%>
+                            			<li>
+                            				<h4 class="blog-title4">
+		                                        <a href="/detail/<%= dataList[j].id%>.html">【活动文章】<%= dataList[j].title %></a>
+		                                    </h4>
+		                                    <div class="blog-r-info clearfix">
+		                                        <div class="blog-r-pic fl">
+		                                            <img src="<%= dataList[j].imgUrl %>" alt="图片不存在">
+		                                        </div>
+		                                        <p class="blog-r-desc">
+		                                            <%= dataList[j].desc %>
+		                                        </p>
+		                                    </div>
+                            			</li>
+                            		<% } %>
+                            	<% } else {%>
+                            		<li>
+                            			<h2>暂无数据</h2>
+                            		</li>
+                            	<% } %>
+                            </ul>
+                        </div>
+
+                        <div class="blog-con-r">
+                            <h2 class="con-title">友情链接</h2>
+                            <ul class="blog-r-list">
+                                <li>
+                                    <a class="enter-wecha" href="/wecha.html">进入聊天室</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="blog-con-r">
+                            <h2 class="con-title">官方微信</h2>
+                        </div>
+                      </div>
+                  </div>
+              </article>
+          </div>
+          <% include footer.ejs %>
+        </div>
+        <script type="text/javascript" src="/js/lib/jquery-2.2.0.min.js"></script>
+        <script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/common/header.js"></script>
+        <script type="text/javascript" src="/js/main/index.js"></script>
+        <script type="text/javascript" src="/js/common/footer.js"></script>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, Chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes"><!--删除默认的苹果菜单栏，工具栏，全屏显示-->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"><!--设置苹果app应用下状态栏颜色-->
+	<meta name="format-detection" content="telephone=no,email=no"><!--格式检测:（数字、邮箱） no不识别为电话号码、邮箱-->
+    <meta name="author" content="feng ying" />
+    <meta name="keywords" content="node, blog" />
+    <meta name="description" content="">
+    <link href="/css/lib/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/common/reset.css" type="text/css" />
+    <link rel="stylesheet" href="/css/common/header.css" type="text/css" />
+    <link rel="stylesheet" href="/css/common/footer.css" type="text/css" />
+    <link rel="stylesheet" href="/css/main/wecha.css" type="text/css" />
+    <title>风鹰blog</title>
+    <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="app">
+        <% include header.ejs %>
+        <div class="container" style="padding: 0 50px; background: rgba(255, 255, 255, .5);">
+            <div class="wecha-top">
+                <h2 class="text-center title1">欢迎进入聊天室</h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4">
+                    <div class="input-group wecha-user">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user-circle fa-lg"></i>
+                        </span>
+                        <input class="form-control" type="text" id="userName" placeholder="请输入用户名...">
+                        <a class="btn btn-into" href="javascript:void(0)">加入聊天</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-lg-offset-3 col-md-offset-3 wecha-wrapper">
+                    <div class="user-msg">
+
+                    </div>
+
+                    <div class="edit-msg">
+                        <script id="editor" type="text/plain" style="width:100%;height:191px;"></script>
+                    </div>
+                    
+                    <div class="user-box">
+                        <div class="user-count">
+                            <span>当前在线人数:</span>
+                            <span class="count">0</span>
+                        </div>
+                        <ul class="user-box-list">
+                        </ul>
+                    </div>
+                    <a id="send-btn" class="btn" href="javascript:void(0)">发送</a>
+                </div>
+            </div>
+        </div>
+        <% include footer.ejs %>
+    </div>
+    <script type="text/javascript" src="/js/lib/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/lib/socket.io.js"></script>
+    <script type="text/javascript" src="/js/common/header.js"></script>
+    <script type="text/javascript" src="/js/common/footer.js"></script>
+    <script type="text/javascript" src="/js/main/wecha.js"></script>
+</body>
+</html>

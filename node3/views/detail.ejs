@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta name="Author" content="fengying">
+        <meta name="Keywords" content="">
+        <meta name="description" content="">
+        <title>风鹰Blog</title>
+        <!-- Bootstrap -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="/css/header.css">
+        <link rel="stylesheet" type="text/css" href="/css/public.css">
+        <link rel="stylesheet" type="text/css" href="/css/detail.css">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+    <div id="app">
+        <% include header.ejs %>
+        <div class="head-cover"></div>
+        <div class="jumbotron">
+            <div class="container" style="height: 200px;">
+               <h1 class="title text-center">文章详情页</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2 class="title text-center"><%= data[0].title %></h2>
+                    <div class="tag"><span>标签:<%= data[0].tag %></span></div>
+                    <div class="author"><span>作者:<%= data[0].author %></span></div>
+                    <div class="time"><span>发布时间:<%= data[0].time %></span></div>
+                    <div class="content">
+                        <p><%= data[0].content %></p>
+                    </div>
+                </div>
+            </div>
+
+            <% if (comment.length !== 0) {%>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 comment">
+                    <div class="row">
+                        <h3 class="title">文章评论<small>条数:<%= comment.length %></small></h3>
+                    </div>
+                    <% for (var i=0; i < comment.length; i++) {%>
+                    <div class="row comment-con">
+                        <div class="col-lg-8">
+                            <p> <%= comment[i].content %> </p>
+                        </div>
+                        <div class="col-lg-4">
+                            <span>评论时间:<%= comment[i].time %></span>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% } %>
+
+            <div class="row user-comment">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <textarea class="form-control" rows="5" name="content"></textarea>
+                    <a class="btn btn-info submit-comment" href="javascript:;">发表评论</a>
+                </div>
+            </div>
+        </div>
+        <% include footer.ejs %>
+        <% include login.ejs %>
+    </div>
+    <script type="text/javascript" src="/js/jquery1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script>
+        (function () {
+            // 发表评论
+            var txt = $('textarea'),
+                submitComment = $('.submit-comment');
+            submitComment.click(function () {
+                if (txt.val() !== '') {
+                    $.ajax({
+                        url: '/detail/<%= data[0].id%>.html',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            content: txt.val()
+                        },
+                        success: function (data) {
+                            if (data.success) {
+                                alert(data.result);
+                                location.reload();
+                            }
+                        },
+                        error: function (data) {
+                            alert(data.responseText);
+                        }
+                    });
+                } else {
+                    alert('评论内容不能为空');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

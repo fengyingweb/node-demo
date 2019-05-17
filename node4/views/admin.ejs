@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, Chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes"><!--删除默认的苹果菜单栏，工具栏，全屏显示-->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"><!--设置苹果app应用下状态栏颜色-->
+	<meta name="format-detection" content="telephone=no,email=no"><!--格式检测:（数字、邮箱） no不识别为电话号码、邮箱-->
+    <meta name="author" content="feng ying" />
+    <meta name="keywords" content="node, blog" />
+    <meta name="description" content="">
+    <link href="/css/lib/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/common/reset.css" type="text/css" />
+    <link rel="stylesheet" href="/css/common/header.css" type="text/css" />
+    <link rel="stylesheet" href="/css/common/footer.css" type="text/css" />
+    <link rel="stylesheet" href="/css/common/message.css" type="text/css" />
+    <link rel="stylesheet" href="/css/main/admin.css" type="text/css" />
+    <title>风鹰blog</title>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="app" class="admin">
+        <% include header.ejs %>
+        <div class="container" style="padding: 0 50px; background: rgba(255, 255, 255, .5);">
+            <h1 class="title1">用户管理</h1>
+            <div class="row user-con">
+                <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
+                    <h3 class="title3">用户列表</h3>
+                    <div class="table-responsive text-center">
+                        <table id="user-table" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>用户名</th>
+                                    <th>邮箱</th>
+                                    <th>管理员</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <% if(dataList.length) {%>
+                                    <% for (var i=0; i<dataList.length; i++) {%>
+                                        <tr>
+                                            <td><%= dataList[i].id %></td>
+                                            <td><%= dataList[i].userName %></td>
+                                            <td><%= dataList[i].email %></td>
+                                            <td>
+                                                <% if (dataList[i].admin) { %>
+                                                    <span>是</span>
+                                                <% } else {%>
+                                                    <span>否</span>
+                                                <% } %>
+                                            </td>
+                                            <td class="operation">
+                                                <a class="edit-btn" href="/admin/update?id=<%= dataList[i].id %>">
+                                                    <i class="fa fa-pencil fa-lg"></i>
+                                                </a>
+                                                <a class="delete-btn" data-id="<%= dataList[i].id %>" href="javascript:void(0)">
+                                                    <i class="fa fa-trash-o fa-lg"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <% } %>
+                                <% } %>
+                            </tbody>
+                        </table>
+                        <% if (!dataList.length ) {%>
+                            <div class="no-data">暂无数据</div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% include message.ejs %>
+        <% include footer.ejs %>
+    </div>
+    <script type="text/javascript" src="/js/lib/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/common/header.js"></script>
+    <script type="text/javascript" src="/js/common/footer.js"></script>
+    <script type="text/javascript" src="/js/main/delete_user.js"></script>
+</body>
+</html>

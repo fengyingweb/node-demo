@@ -1,0 +1,72 @@
+
+   <nav id="header-nav" class="navbar navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+              <button class="navbar-toggle" data-toggle="collapse" data-target="#responseNav">
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">风鹰Blog</a>
+          </div>
+
+          <div id="responseNav" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                 <li class="active item-l" data-link="/">
+                    <a href="/">首页</a>
+                 </li>
+                 <li class="item-l" data-link="/about">
+                    <a href="/about">关于我</a>
+                 </li>
+                 <li class="item-l" data-link="/studet">
+                    <a href="javascript:void(0)">学无止境</a>
+                 </li>
+                 <li class="item-l" data-link="/life">
+                    <a href="javascript:void(0)"">慢生活</a>
+                 </li>
+                 <li class="item-l" data-link="/sayAbout">
+                    <a href="javascript:void(0)"">留言</a>
+                 </li>
+              </ul>
+
+              <div class="nav navbar-nav header-right navbar-right">
+                <div class="user-wrapper">
+                    <i class="fa fa-user-circle-o fa-2x"></i>
+                    <% if (locals.loginName) {%>
+                        <span id="loginName"><%= locals.loginName %></span>
+                    <% } else {%>
+                        <span>未登录</span>
+                    <% } %>
+                </div>
+
+                <div class="user-footer">
+                    <ul class="user-list">
+                        <% if (locals.loginName) {%>
+                            <% if (locals.admin) { %>
+                                <li>
+                                    <a href="/admin"><i class="fa fa-cog"></i>管理</a>
+                                </li>
+                                <li>
+                                    <a href="/pager-plus"><i class="fa fa-paper-plane"></i>发布文章</a>
+                                </li>
+                            <% } %>
+                        <% } %>
+                        <li>
+                            <a href="/login"><i class="fa fa-sign-in"></i>登录</a>
+                        </li>
+                        <li>
+                            <a href="/reg"><i class="fa fa-user-plus"></i>注册</a>
+                        </li>
+                        <% if (locals.loginName) {%>
+                            <li>
+                                <a id="logout" href="/logout"><i class="fa fa-sign-out"></i>退出</a>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+          </div>
+      </div>
+   </nav>
+
+<div class="cover-wrapper"></div>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Author" content="fengying">
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <title>风鹰Blog</title>
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/css/update.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="app">
+        <% include ../header.ejs %>
+        <div class="head-cover"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3 text-center">
+                    <h1 class="title">欢迎来到用户修改页面</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3">
+                    <div class="old">
+                        <span >用户id:</span>
+                        <span class="user-id"> <%= data[0].id %></span>
+                    </div>
+                    <div class="old">
+                        <span>旧用户名:</span>
+                        <span> <%= data[0].username %></span>
+                    </div>
+
+                    <div class="old">
+                        <span>旧邮箱:</span>
+                        <span> <%= data[0].email %></span>
+                    </div>
+
+                    <div class="old">
+                        <span>是否为管理员:</span>
+                        <span> <%= data[0].admin %></span>
+                    </div>
+
+                    <form class="form-horizontal" action="/admin/user/update" name="formUpdate">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="txt1">新用户名:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" name="username" id="txt1" autocomplete="off" placeholder="请输入新用户名...">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="eml">新邮箱:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="email" name="email" id="eml" autocomplete="off" placeholder="请输入新新邮箱...">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" autocomplete="off" for="sel">是否为管理员:</label>
+                            <div class="col-lg-9">
+                                <select class="form-control" name="admin" id="sel">
+                                    <option value="">请选择...</option>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="text-center">
+                        <a class="btn btn-info update-btn" href="javascript:;">确认修改</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% include ../footer.ejs %>
+    </div>
+    <script type="text/javascript" src="/js/jquery1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script>
+        (function () {
+            // 修改用户
+            var txt = $("#txt1"),
+                eml =$("#eml"),
+                sel = $("#sel"),
+                userId = $('.user-id'),
+                updateBtn = $('.update-btn');
+
+            updateBtn.click(function(){
+                var username = txt.val(),
+                    email = eml.val(),
+                    admin = sel.val();
+                if (username!=='' || email!=='' || admin!=='') {
+                    $.ajax({
+                        url: '/admin/user/update',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            username: username || '<%= data[0].username %>',
+                            email: email || '<%= data[0].email %>',
+                            admin: admin || '<%= data[0].admin %>',
+                            id: userId.html()
+                        },
+                        success: function (data) {
+                            alert(data.result);
+                        },
+                        error: function (data) {
+                            alert(data.responseText);
+                        }
+                    });
+                } else {
+                    alert('新信息能为空!')
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

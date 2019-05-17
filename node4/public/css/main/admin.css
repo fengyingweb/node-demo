@@ -1,0 +1,53 @@
+.title1 {
+    margin: 20px 0;
+    line-height: 50px;
+    font-weight: 500;
+    font-size: 30px;
+    color: #363636;
+    text-align: center;
+}
+.title3 {
+    margin: 20px 0;
+    line-height: 30px;
+    color: #363636;
+    text-align: center;
+}
+
+.user-con {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    background: #fff;
+}
+
+.operation a {
+    display: inline-block;
+    margin: 0 5px;
+    transition: all .5s;
+}
+
+.operation a.delete-btn:hover {
+    color: #f56c6c;
+}
+
+.operation a.edit-btn:hover {
+    color: #409eff;
+}
+
+#user-table thead th {
+    text-align: center;
+}
+#user-table tbody tr {
+    transition: all .5s;
+}
+#user-table tbody tr:hover {
+    background: #299982;
+    color: #fff;
+}
+#user-table.table {
+    margin-bottom: 0;
+}
+.no-data {
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+    line-height: 36px;
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, Chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes"><!--删除默认的苹果菜单栏，工具栏，全屏显示-->
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black"><!--设置苹果app应用下状态栏颜色-->
+	    <meta name="format-detection" content="telephone=no,email=no"><!--格式检测:（数字、邮箱） no不识别为电话号码、邮箱-->
+        <meta name="author" content="feng ying" />
+        <meta name="keywords" content="node, blog" />
+        <meta name="description" content="">
+        <link href="/css/lib/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/css/lib/font-awesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="/css/common/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/css/main/login.css" type="text/css" />
+        <link rel="stylesheet" href="/css/common/message.css" type="text/css" />
+        <title>风鹰blog</title>
+        <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="app">
+          <div class="login-wrapper">
+              <div class="login-header">
+                  <h3 class="text-center">用户登录</h3>
+              </div>
+              <div class="login-body">
+                  <div class="input-group">
+                      <span class="input-group-addon">
+                          <i class="fa fa-user-circle fa-lg"></i>
+                      </span>
+                      <div class="error-tip"></div>
+                      <input class="form-control" type="text" id="userName" placeholder="请输入用户名...">
+                  </div>
+
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-key fa-lg"></i>
+                    </span>
+                    <div class="error-tip"></div>
+                    <input class="form-control" type="password" id="psw" placeholder="请输入密码...">
+                  </div>
+
+                  <div class="input-group btn-wrapper text-center">
+                      <a id="login-btn" class="btn btn-info" href="javascript:void(0)">登录</a>
+                      <a class="btn btn-info" href="/reg">注册</a>
+                  </div>
+              </div>
+              <div class="login-footer"></div>
+          </div>
+          <% include message.ejs %>
+        </div>
+        <script type="text/javascript" src="/js/lib/jquery-2.2.0.min.js"></script>
+        <script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/common/header.js"></script>
+        <script type="text/javascript" src="/js/main/login.js"></script>
+    </body>
+</html>

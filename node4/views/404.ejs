@@ -1,0 +1,39 @@
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes"><!--删除默认的苹果菜单栏，工具栏，全屏显示-->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"><!--设置苹果app应用下状态栏颜色-->
+	<meta name="format-detection" content="telephone=no,email=no"><!--格式检测:（数字、邮箱） no不识别为电话号码、邮箱-->
+    <meta name="author" content="feng ying" />
+    <meta name="keywords" content="node, blog" />
+    <meta name="description" content="">
+    <link href="/css/lib/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/common/reset.css" type="text/css" />
+    <link rel="stylesheet" href="/css/common/header.css" type="text/css" />
+    <link rel="stylesheet" href="/css/common/footer.css" type="text/css" />
+    <link rel="stylesheet" href="/css/main/404.css" type="text/css" />
+	<title>风鹰blog</title>
+	<!--[if lt IE 9]>
+     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<div id="app">
+		<% include header.ejs %>
+		<div class="container main-con" style="padding: 0 50px; background: rgba(255, 255, 255, .5);">
+			<article class="main">
+				<h2 class="title2">对不起! 您查找的页面不存在(not found)</h2>
+			</article>
+		</div>
+		<% include footer.ejs %>
+	</div>
+	<script type="text/javascript" src="/js/lib/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/common/header.js"></script>
+    <script type="text/javascript" src="/js/common/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta name="Author" content="fengying">
+        <meta name="Keywords" content="">
+        <meta name="description" content="">
+        <title>风鹰Blog</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/header.css">
+        <link rel="stylesheet" type="text/css" href="css/public.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="app">
+        	<% if (locals.login) {%>
+        		<% include header.ejs %>
+	            <div class="head-cover"></div>
+	            
+	            <div class="jumb-box jumbotron">
+	            	<div class="container">
+	            		<h3 class="title text-center">
+	            			<a class="btn btn-primary" href="/chat">进入聊天室</a>
+	            		</h3>
+	            	</div>
+	            </div>
+	              <section class="article-list">
+	                <div class="container">
+	            	  <div class="article">
+	            		<div class="row art-con"></div>
+	            		
+	            		<div class="row">
+	            			<div class="col-lg-6 col-md-6 col-sm-8 col-lg-offset-3 col-md-offset-3 col-sm-offset-2 text-center">
+	            				<ul class="pagination">
+	            					<li class="prev"><a href="javascript:void(0)">&laquo;</a></li>
+	            					<% for (var j=0; j<total/4; j++) {%>
+	            						<li data-num="<%= j+1 %>" class="list-item"><a href="javascript:void(0)"><%= j+1 %></a></li>
+	            				    <% } %>
+	            				    <li class="next"><a href="javascript:void(0)">&raquo;</a></li>
+	            				</ul>
+	            			</div>
+	            		</div>
+	            	  </div>
+	                </div>
+	              </section>
+	            <% include footer.ejs %>
+        	<% } else {%>
+        		<% include login.ejs %>
+        	<% } %>
+        </div>
+      <script type="text/javascript" src="js/jquery1.11.3.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/login.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

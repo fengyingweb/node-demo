@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Author" content="fengying">
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <title>风鹰Blog</title>
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/css/views.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<div id="app">
+        <% include ../header.ejs %>
+        <div class="head-cover"></div>
+        <div class="jumbotron">
+        	<div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3 text-center">
+                    <h1 class="title">欢迎来到模板管理页面</h1>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <% if (viewData) {%>
+        	<div class="container">
+        	<div class="row">
+        		<div class="col-lg-2">
+        			<ul class="nav-views nav nav-pills nav-stacked">
+        				<% for (var i=0; i<viewData.length; i++) {%>
+        					<%if (viewData[i].includes('.')) { %>
+        					    <li data-type="1" onclick="navClick(this)"><%= viewData[i] %></li>
+        					<% } else {%>
+        						<li data-type="2" onclick="navClick(this)"><%= viewData[i] %></li>
+        					<% } %>
+        			    <% } %>
+        			</ul>
+        		</div>
+        		
+        		<div class="view-content col-lg-10">
+        			<div class="form-group">
+        				<textarea class="form-control content" rows="20"></textarea>
+        			</div>
+        			<div class="col-lg-2">
+        				<a href="javascript:;" class="btn btn-primary">修改</a>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <% } %>
+        
+        <% include ../footer.ejs %>
+    </div>
+	<script type="text/javascript" src="/js/jquery1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script>
+    	
+    		var $li = $('.nav-views li'),
+    		    $ul = $('.nav-views'),
+    		    $content = $('.content'),
+    		    $viewContent = $('.view-content'),
+    		    dirType = '',
+    		    dirName = '',
+    		    dirChild = '',
+    		    str = '';
+    		    
+    		function navClick(obj) {
+    			dirType = $(obj).attr('data-type');
+    			dirName = $(obj).text();
+    			if ($(obj).attr('data-child')) {
+    				dirChild = $(obj).attr('data-child');
+    				// console.log(dirChild);
+    			}
+    			
+    			$.ajax({
+    				url: '/admin/views',
+    				type: 'post',
+    				dataType: 'json',
+    				data: {
+    					dirType: dirType,
+    					dirName: dirName,
+    					dirChild: dirChild
+    				},
+    				success: function (data) {
+    					if (data.success) {
+    						if (dirType === '1') {
+    							$content.val(data.content);
+    							$viewContent.fadeIn(500);
+    						} else if (dirType === '2') {
+    							$ul.html('');
+    							// console.log(data.fileName);
+    							var fileList = data.fileName;
+    							var type = null;
+    							for (var i=0; i<fileList.length; i++) {
+    								if (fileList[i].includes('.')) {
+    									type = 1;
+    								} else {
+    									type = 2;
+    								}
+    								str += `<li data-type="${type}" data-child="1-2" onclick="navClick(this)">${fileList[i]}</li>`;
+    							}
+    							// console.log(str);
+    							$ul.html(str);
+    						}
+    					}
+    				},
+    				error: function (data) {
+    					console.log(data.responseText);
+    				}
+    			});
+    		}
+    </script>
+</body>
+</html>

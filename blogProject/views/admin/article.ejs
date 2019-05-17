@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Author" content="fengying">
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <title>风鹰Blog</title>
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/public.css">
+    <link rel="stylesheet" type="text/css" href="../css/article.css">
+    <script type="text/javascript" charset="utf-8" src="../ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../ueditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="../ueditor/lang/zh-cn/zh-cn.js"> </script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<div id="app">
+		<% include ../header.ejs %>
+	    <div class="head-cover"></div>
+	    <div class="jumb-box jumbotron">
+	    	<div class="container">
+	    		<div class="row">
+	    			<div class="col-lg-6 col-md-6 col-sm-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
+	    				<h1 class="title text-center">文章发布</h1>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    
+	    <div class="container">
+	    	<div class="row">
+	    		<div class="col-lg-8 col-md-8 col-sm-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2">
+	    			<div class="form-wrapper">
+	    				<form id="fileForm" name="fileForm" class="form-horizontal" action="/admin/article" enctype="multipart/form-data" method="post">
+	    					<div class="form-group">
+	    						<label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right" for="title">文章标题:</label>
+	    						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+	    							<input class="form-control" type="text" name="title" id="title" autocomplete="off" placeholder="请输入文章标题..." />
+	    						</div>
+	    					</div>
+	    					
+	    					<div class="form-group">
+	    						<label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right" for="tag">文章标签:</label>
+	    						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+	    							<input class="form-control" type="text" name="tag" id="tag" autocomplete="off" placeholder="请输入文章标签..." />
+	    						</div>
+	    					</div>
+	    					
+	    					<div class="form-group">
+	    						<label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right" for="author">文章作者:</label>
+	    						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+	    							<input class="form-control" type="text" name="author" id="author" autocomplete="off" placeholder="请输入文章作者..." />
+	    						</div>
+	    					</div>
+	    				
+	    					<div class="form-group">
+	    						<label class="control-label col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right" for="image">上传图片:</label>
+	    						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+	    							<input class="form-control" type="file" name="image" id="image" autocomplete="off"/>
+	    						</div>
+	    					</div>
+	    					
+	    					<div class="form-group">
+	    						<label class="content-label control-label col-lg-3 col-md-3 col-sm-3 col-xs-3" for="content">文章内容:</label>
+	    						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	    							<textarea class="form-control" name="content" id="content" rows="20" autocomplete="off"></textarea>
+	    						</div>
+	    					</div>
+	    				</form>
+	    				<div class="row">
+					    	<div class="col-lg-6 col-md-6 col-sm-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 text-center">
+					    		<a class="release btn btn-primary" href="javascript:void(0)">发布文章</a>
+					    	</div>
+					    </div>
+					    
+					    <%if (locals.msg) {%>
+					    	<%- locals.msg %>
+					    <% } %>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+	    <!--
+	    <button id="btn1">获取内容</button>
+	    -->
+    	<% include ../footer.ejs%>
+    </div>
+    <script type="text/javascript" src="../js/jquery1.11.3.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/article.js"></script>
+</body>
+</html>

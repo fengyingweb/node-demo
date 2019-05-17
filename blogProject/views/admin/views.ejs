@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Author" content="fengying">
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <title>风鹰Blog</title>
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/public.css">
+    <link rel="stylesheet" type="text/css" href="../css/views.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<div id="app">
+		<% include ../header.ejs %>
+	    <div class="head-cover"></div>
+	    <div class="jumb-box jumbotron">
+	    	<div class="container">
+	    		<div class="row">
+	    			<div class="col-lg-6 col-md-6 col-sm-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
+	    				<h1 class="title text-center">模板管理页</h1>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    
+	    <div class="main-con">
+	        <div class="container">
+	    	  <div class="row">
+	    		<div class="col-lg-3 col-md-3 col-sm-3">
+	    			<ul class="nav-list nav nav-pills nav-stacked">
+	    				<% for(var i=0; i<fileList.length; i++) {%>
+	    				  <% if (fileList[i].indexOf('.')!== -1) {%>
+	    				  	<li class="list-item" data-type="1"><a href="javascript:void(0)"><%= fileList[i] %></a></li>
+	    				  <% } else {%>
+	    				  	<li class="list-item" data-type="2"><a href="javascript:void(0)"><%= fileList[i] %></a></li>
+	    				  <% } %>
+	    				<% } %>
+	    			</ul>
+	    		</div>
+	    		<div class="col-lg-9 col-md-9 col-sm-9">
+	    		   <div class="form-group">
+	    		   	  <textarea class="form-control" name="views" id="views-con" rows="30"></textarea>
+	    		   </div>
+	    		   <div class="form-group">
+	    		   	 <a class="update btn btn-primary" href="javascript:void(0)">修改</a>
+	    		   	 <a class="goback btn btn-primary" href="javascript:void(0)">返回</a>
+	    		   </div>
+	    		</div>
+	    	  </div>
+	    	</div>
+	    </div>
+    	<% include ../footer.ejs%>
+    </div>
+    <script type="text/javascript" src="../js/jquery1.11.3.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/views.js"></script>
+</body>
+</html>

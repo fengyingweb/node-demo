@@ -1,0 +1,42 @@
+
+.table-box {
+    margin-top: 20px;
+    caption {
+        font-size: 30px;
+    }
+    .table {
+        th, td {
+          text-align: center;
+        }
+        .form-control {
+            width: 50%;
+            height: 20px;
+            margin: 4px auto 0;
+        }
+    }
+    .table-hover>tbody>tr {
+        -webkit-transition: all 0.8s;
+        -moz-transition: all 0.8s;
+        -ms-transition: all 0.8s;
+        transition: all 0.8s;
+        &:hover {
+            background: #db5941;
+            color: #fff;
+        }
+    }
+}
+.remove-btn, td {
+    padding-left: 50px;
+    .btn-primary {
+        background: #2f2f2f;
+        border-color: #2f2f2f;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        transition: all 0.5s;
+        &:hover, &:active {
+            background:#2A80B9;
+            border-color: #2A80B9;
+        }
+    }
+}

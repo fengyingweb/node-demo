@@ -1,0 +1,35 @@
+.editor-box {
+  margin: 30px 0; }
+  .editor-box .release {
+    margin-top: 15px; }
+
+.details {
+  color: #363636; }
+  .details .info {
+    line-height: 30px; }
+  .details .con {
+    margin-top: 20px; }
+    .details .con p {
+      text-indent: 2em;
+      line-height: 24px; }
+
+.comment-box {
+  margin-top: 30px;
+  border: 2px solid #ddd;
+  border-radius: 4px; }
+  .comment-box .com-count {
+    padding: 10px 0 10px 20px;
+    font-size: 20px; }
+    .comment-box .com-count span {
+      color: #db5941; }
+  .comment-box .comment-con {
+    padding-bottom: 20px; }
+  .comment-box .con-info {
+    width: 70%;
+    padding-left: 20px;
+    line-height: 24px; }
+  .comment-box .com-time {
+    padding-right: 20px;
+    line-height: 24px; }
+
+/*# sourceMappingURL=details.css.map */
