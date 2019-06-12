@@ -4,7 +4,6 @@ html{
 	/*谷歌浏览器最小字体为12px*/
 	-webkit-text-size-adjust:100%;/*100%|none关闭字体大小自动调整功能*/
 	-webkit-tap-highlight-color:transparent;/*a标签及拥有:active伪类的元素有默认的高亮显示框*/
-	-webkit-user-select:none;/*禁止文本被选中*/
 }
 
 body{
