@@ -13,6 +13,7 @@ $(function() {
         var mWidth = $banner.outerWidth();
         var len = $bannerList.children().length;
         var timer = null;
+		var t = null;
         init();
 
         $(window).resize(function() {
@@ -23,8 +24,8 @@ $(function() {
         $arrowRight.click(function() {
             clearInterval(timer);
             index++;
-            var t = null;
-            if ((new Date() - t) > 800) {
+			console.log((new Date() - t))
+            if ((new Date() - t) > 500) {
                 t = new Date();
                 $btnItem.eq(index).addClass('active').siblings().removeClass('active');
                 $bannerList.stop().animate({marginLeft: -(index+1)*mWidth + 'px'}, 500, function() {
@@ -41,7 +42,6 @@ $(function() {
         $arrowLeft.click(function() {
             clearInterval(timer);
             index--;
-            var t = null;
             if ((new Date() - t) > 800) {
                 t = new Date();
                 $btnItem.eq(index).addClass('active').siblings().removeClass('active');
@@ -59,7 +59,6 @@ $(function() {
         $btnItem.click(function() {
             clearInterval(timer);
             var num = $(this).index();
-            var t = null;
             index = num;
             if ((new Date() - t) > 800) {
                 t = new Date();
